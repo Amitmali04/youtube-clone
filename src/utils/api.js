@@ -1,9 +1,7 @@
 import axios from "axios";
-// import dotenv from "dotenv";
 
-// dotenv.config()
 
-const BASE_URL = "https://youtube138.p.rapidapi.com";
+ const BASE_URL = "https://youtube138.p.rapidapi.com";
 
 const options = {
     params: { hl: "en", gl: "US" },

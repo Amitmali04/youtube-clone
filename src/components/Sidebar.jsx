@@ -20,7 +20,7 @@ const Sidebar = () => {
       }
   };
   return (
-    <div className={`md:block overflow-y-auto h-full py-4 bg-gray-100 absolute md:relative z-10 translate-x-[-240px] md:translate-x-0 transition-all ${mobileMenu ? 'w-[60px] md:w-[80px]' : 'md:w-[190px]'}`}>
+    <div className={`md:block overflow-y-auto h-full py-4 bg-gray-100 absolute md:relative z-10  transition-all ${mobileMenu ? 'w-[60px] md:w-[80px]' : 'md:w-[190px]'}`}>
       <div className="flex md:px-2 px-1 flex-col">
         {categories.map((item) => {
           return (

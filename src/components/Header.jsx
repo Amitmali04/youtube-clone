@@ -13,8 +13,7 @@ import Loader from "../shared/loader";
 const Header = () => {
     const [searchQuery, setSearchQuery] = useState("");
 
-    const {  mobileMenu, setMobileMenu, sideBarMenu,
-      setSideBarMenu, } = useContext(Context);
+    const { loading, mobileMenu, setMobileMenu} = useContext(Context);
 
     const navigate = useNavigate();
 
@@ -37,7 +36,7 @@ const pageName = pathname?.split("/")?.filter(Boolean)?.[0];
 
   return (
     <div className="static top-0 z-10 flex flex-row items-center justify-between h-14 px-4 md:px-5 bg-gray-100 dark:bg-black">
-       {/* {loading && <Loader />} */}
+       {loading && <Loader />}
       <div className="flex h-5 items-center">
       {pageName !== "video"  && (
         <div className="flex md:mr-6 cursor-pointer items-center justify-center h-10 w-10 rounded-full 
@@ -125,7 +124,7 @@ const pageName = pathname?.split("/")?.filter(Boolean)?.[0];
           </div>
         </div>
         <div className="flex h-8 w-8 overflow-hidden rounded-full md:ml-4">
-          <img src="https://xsgames.co/randomusers/assets/avatars/female/67.jpg" />
+          <img src="https://xsgames.co/randomusers/assets/avatars/female/67.jpg"  alt="Avtar"/>
         </div>
       </div>
     </div>

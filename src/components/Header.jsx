@@ -1,27 +1,52 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { SlMenu } from "react-icons/sl";
 import { IoIosSearch } from "react-icons/io";
 import { RiVideoAddLine } from "react-icons/ri";
 import { FiBell } from "react-icons/fi";
-import { MdKeyboardVoice } from "react-icons/md";
+import {MdKeyboardVoice} from 'react-icons/md'
+
 import { Context } from "../context/contextApi";
+import Loader from "../shared/loader";
 
 const Header = () => {
+    const [searchQuery, setSearchQuery] = useState("");
 
-  const {mobileMenu, setMobileMenu} = useContext(Context)
+    const {  mobileMenu, setMobileMenu, sideBarMenu,
+      setSideBarMenu, } = useContext(Context);
+
+    const navigate = useNavigate();
+
+    const searchQueryHandler = (event) => {
+        if (
+            (event?.key === "Enter" || event === "searchButton") &&
+            searchQuery?.length > 0
+        ) {
+            navigate(`/searchResult/${searchQuery}`);
+        }
+    };
 
   const mobileMenuToggle = () => {
     setMobileMenu(!mobileMenu);
 };
+
+
+const { pathname } = useLocation();
+const pageName = pathname?.split("/")?.filter(Boolean)?.[0];
+
   return (
     <div className="static top-0 z-10 flex flex-row items-center justify-between h-14 px-4 md:px-5 bg-gray-100 dark:bg-black">
+       {/* {loading && <Loader />} */}
       <div className="flex h-5 items-center">
+      {pageName !== "video"  && (
         <div className="flex md:mr-6 cursor-pointer items-center justify-center h-10 w-10 rounded-full 
          hover:bg-[#303030]/[0.6]" onClick={mobileMenuToggle}>
           <SlMenu className="text-black text-xl" />
         </div>
-        <a href="/" className="flex h-5 items-center">
+      )      
+      }
+        <Link to="/" className="flex h-5 items-center">
           <svg
             className="external-icon"
             viewBox="0 0 90 20"
@@ -61,7 +86,7 @@ const Header = () => {
               </g>
             </svg>
           </svg>
-        </a>
+        </Link>
       </div>
 
       <div className="group flex items-center">
@@ -72,15 +97,15 @@ const Header = () => {
             <input
               type="text"
               className="bg-transparent outline-none text-black pr-5 pl-5 md:pl-0 w-44 md:group-focus-within:pl-0 md:w-64 lg:w-[500px] font-semibold"
-              // onChange={(e) => setSearchQuery(e.target.value)}
-              // onKeyUp={searchQueryHandler}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyUp={searchQueryHandler}
               placeholder="Search"
-              // value={searchQuery}
+              value={searchQuery}
             />
           </div>
           <button
             className="w-[40px] md:w-[60px] h-8 md:h-10 flex items-center justify-center border border-l-0 border-[#303030] rounded-r-3xl bg-white/[0.1]"
-            // onClick={() => searchQueryHandler("searchButton")}
+            onClick={() => searchQueryHandler("searchButton")}
           >
             <IoIosSearch className="text-black text-xl" />
           </button>

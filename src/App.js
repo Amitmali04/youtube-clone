@@ -1,12 +1,16 @@
-
-import './App.css';
-import Header from './components/Header';
+import "./App.css";
+import Header from "./components/Header";
+import Home from "./components/Home";
+import {AppContext} from './context/contextApi'
 
 function App() {
   return (
-    <div className="flex flex-col h-full">   
-    <Header />
-    </div>
+    <AppContext>
+      <div className="flex flex-col h-full">
+        <Header />
+        <Home />
+      </div>
+    </AppContext>
   );
 }
 

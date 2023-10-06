@@ -1,10 +1,10 @@
 import React from "react";
 
 import { SlMenu } from "react-icons/sl";
-import { IoIosSearch } from "react-icons/io";
-import { RiVideoAddLine } from "react-icons/ri";
-import { FiBell } from "react-icons/fi";
-import { CgClose } from "react-icons/cg";
+// import { IoIosSearch } from "react-icons/io";
+// import { RiVideoAddLine } from "react-icons/ri";
+// import { FiBell } from "react-icons/fi";
+// import { CgClose } from "react-icons/cg";
 
 const Header = () => {
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
-import Home from "./components/Homegit ";
+import Home from "./components/Home";
 import SearchResult from "./components/SearchResult";
 import VideoDetails from "./components/VideoDetails";
 import { AppContext } from "./context/contextApi";
